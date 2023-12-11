@@ -50,9 +50,23 @@ function playRound(player, computer){
   }
 }
 
+function game(){
+  let finalResult = 0;
+  for(let i = 0; i<5; i++){
+    let player = playerSelection();
+    let comp = getComputerChoice();
+    let currResult = playRound(player, comp);
+    console.log(currResult);
+    if (currResult.includes("Win")){
+      finalResult++;
+    }
+  }
+  if (finalResult > 2){
+    console.log("You win the tournament!");
+  }
+  else{
+    console.log("You lose the tournament!")
+  }
+}
 
-
-let player = playerSelection();
-let comp = getComputerChoice();
-
-console.log(playRound(player, comp))
+game();
